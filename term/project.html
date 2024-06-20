@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>용어사전</title>
+    <link rel="stylesheet" href="project.css"></head><body>
+    <div class="container">
+        <h1>용어사전</h1>
+        <div class="add-word">
+            <input type="text" id="newWord" placeholder="New word">
+            <input type="text" id="newDescription" placeholder="Description">
+            <button onclick="addWord()">Add Word</button>
+        </div>
+        <div class="search-word">
+            <input type="text" id="searchWord" placeholder="Search word" onkeyup="searchWord()">
+            <p id="result"></p>
+        </div>
+    </div>
+    <script src="project.js"></script></body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+</html>
+<body>
+    <div class="main">
+      <input id="id" type="text"/>
+      <input id="pwd" type="password"/>
+      <button id="loginBtn">로그인</button>
+      <button id="displayBtn">사용자 정보출력</button><br>
+      <div id="userId"></div>
+      <div id="userPwd"></div>
+    </div>
+  </body>
+  
+  <script>
+const idElement = document.getElementById("id");
+const pwdElement = document.getElementById("pwd");
+const loginButton = document.getElementById("loginBtn");
+const displayBtn =document.querySelector("#displayBtn")
+const userIdElement = document.getElementById("userId");
+const userPwdElement = document.getElementById("userPwd");
+
+const userLoginInfo = localStorage.getItem("userInfo");
+console.log(userLoginInfo);
+
+userIdElement.textContent = `id : ${userLoginInfo.id}`;
+userPwdElement.textContent = `pwd : ${userLoginInfo.pwd}`;
+
+loginButton.addEventListener("click",()=>{
+    let userInfo = { id: idElement.value, pwd: pwdElement.value }
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+})
+
+displayBtn.addEventListener("click",function(){
+   const loadInfo =localStorage.getItem("userInfo");
+   console.log(userLoginInfo); 
+   const userLoginInfo = JSON.parse(loadInfo);
+   console.log(userLoginInfo);
+   userIdElement.innerText = userLoginInfo.id;
+   userPwdElement.innerText = userLoginInfo.pwd;
+})
+// key-value 쌍으로 저장
+loginButton.addEventListener("click", ()=>{
+    const userInfo ={
+        id :idElement.Value,
+        pwd:pwdElement.Value
+    }
+    const JSONstr = JSON.stringify(userInfo);
+    console.log(JSONstr);
+    localStorage.setItem("userInfo",JSONstr);
+    
+});
+  </script>
+  </body>
